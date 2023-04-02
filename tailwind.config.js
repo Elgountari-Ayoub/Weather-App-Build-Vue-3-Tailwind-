@@ -15,7 +15,7 @@ module.exports = {
       Robot: ["Robot, sans-serif"],
     },
     container: {
-      padding: "2rem",
+      padding: "12rem",
       center: true,
     },
     screens: {
