@@ -58,3 +58,102 @@ const toggleModal = ()=> {
     modalActive.value = !modalActive.value;
 };
 </script>
+
+<!-- <template>
+    <div class="container mx-auto">
+        <h1 class="mb-8 text-4xl font-bold text-gray-800">My Calendar</h1>
+
+        <div class="flex items-center justify-between mb-4">
+            <button class="p-2 bg-gray-200 rounded-full hover:bg-gray-300" @click="previousMonth">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <h2 class="text-2xl font-bold text-gray-800">{{ month }}</h2>
+
+            <button class="p-2 bg-gray-200 rounded-full hover:bg-gray-300" @click="nextMonth">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-7 gap-4">
+            <div v-for="(day, index) in days" :key="index" class="font-bold text-center text-gray-800 uppercase">
+                {{ day }}
+            </div>
+        </div>
+
+        <div class="grid grid-cols-7 gap-4">
+            <div v-for="(day, index) in daysInMonth" :key="index" :class="{
+                'text-gray-400': isNotCurrentMonth(day),
+                'bg-gray-200': isSelected(day),
+            }" @click="selectDate(day)">
+                {{ day }}
+            </div>
+        </div>
+    </div>
+</template>
+  
+<script>
+export default {
+    name: 'App',
+
+    data() {
+        return {
+            selectedDate: null,
+            currentDate: new Date(),
+        };
+    },
+
+    computed: {
+        month() {
+            return this.currentDate.toLocaleDateString('default', {
+                month: 'long',
+                year: 'numeric',
+            });
+        },
+
+        daysInMonth() {
+            const year = this.currentDate.getFullYear();
+            const month = this.currentDate.getMonth();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            return Array.from({ length: daysInMonth }, (_, i) => i)
+        },
+
+        days() {
+            return ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        },
+    },
+
+    methods: {
+        previousMonth() {
+            this.currentDate.setMonth(this.currentDate.getMonth() - 1);
+        },
+        nextMonth() {
+            this.currentDate.setMonth(this.currentDate.getMonth() + 1);
+        },
+
+        isNotCurrentMonth(day) {
+            const year = this.currentDate.getFullYear();
+            const month = this.currentDate.getMonth();
+            const date = new Date(year, month, day);
+
+            return date.getMonth() !== month;
+        },
+
+        isSelected(day) {
+            const year = this.currentDate.getFullYear();
+            const month = this.currentDate.getMonth();
+            const date = new Date(year, month, day);
+
+            return this.selectedDate && this.selectedDate.toDateString() === date.toDateString();
+        },
+
+        selectDate(day) {
+            const year = this.currentDate.getFullYear();
+            const month = this.currentDate.getMonth();
+            this.selectedDate = new Date(year, month, day);
+        },
+    },
+};
+</script>
+
+<style></style> -->
